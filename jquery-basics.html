@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Basics</title>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<style type="text/css">
+		.greenCircle {
+			background-color: green;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			margin-bottom: 20px;
+			margin-right: 20px;
+		}
+
+		.orangeCircle {
+			background-color: orange;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			margin-bottom: 20px;
+			margin-right: 20px;
+		}
+
+		.redCircle {
+			background-color: red;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			margin-bottom: 20px;
+			margin-right: 20px;
+		}
+
+		.left {
+			float: left;
+		}
+
+		.clear {
+			clear: both;
+		}
+
+		#theage {
+			height: 300px;
+			width: 800px;
+		}
+		
+	</style>
+	
+</head>
+<body>
+	<h2>jQuery Basics Examples</h2>
+	<h3>Basic examples</h3>
+	<p id="textChange">Click on the Green Circle to watch this text and the frame change!</p>
+	<div id="changeit" class="greenCircle"></div>
+	<iframe id="theage" src="https://theage.com.au"></iframe>
+
+	<h3>Fade out example</h3>
+	<p>Click on the circles to watch them fade away...</p>
+	<div class="greenCircle left fadeOut"></div>
+	<div class="orangeCircle left fadeOut"></div>
+	<div class="redCircle left fadeOut"></div>
+	<div class="clear"></div>
+	<script type="text/javascript">
+		
+		$("#changeit").click(function () {
+			$("#textChange").html("Well done - you changed the text!");
+			$("iframe").attr("src","http://craigeastwood.com");
+		});
+
+		$(".fadeOut").click(function() {
+			$(this).fadeOut("slow", function () {
+				alert("Circle disappeared!")
+			});
+		});
+
+		
+	</script>
+</body> 
+</html>
