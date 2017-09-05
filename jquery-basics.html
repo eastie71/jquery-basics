@@ -37,6 +37,23 @@
 			margin-right: 20px;
 		}
 
+		.blueSquare {
+			background-color: blue;
+			width: 60px;
+			height: 60px;
+			margin: 20px;
+		}
+
+		.scaleCircle {
+			background-color: pink;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			margin-left: 250px;
+		}
+
 		.left {
 			float: left;
 		}
@@ -66,6 +83,15 @@
 	<div class="orangeCircle left fadeOut"></div>
 	<div class="redCircle left fadeOut"></div>
 	<div class="clear"></div>
+
+	<h3>Fade in-out and Grow-shrink examples</h3>
+	<button id="hide-show">Click me to make the square DISAPPEAR</button>
+	<button id="grow-shrink">Click me to make the circle GROW</button>
+	<div>
+		<div class="blueSquare left"></div>
+		<div class="scaleCircle left"></div>
+		<div class="clear"></div>
+	</div>
 	<script type="text/javascript">
 		
 		$("#changeit").click(function () {
@@ -79,7 +105,39 @@
 			});
 		});
 
+		$("#hide-show").click(function () {
+			if ($(".blueSquare").is(":visible")) {
+				$(".blueSquare").fadeOut("slow");
+				$(this).html("Click me to make the square APPEAR");
+			} else {
+				$(".blueSquare").fadeIn("slow");
+				$(this).html("Click me to make the square DISAPPEAR");
+			}
+		});
 		
+		$("#grow-shrink").click(function () {
+			if ($(".scaleCircle").css("width") != "400px") {
+				$(".scaleCircle").animate({
+					width:"400px", 
+					height:"400px",
+					marginLeft: "300px",
+					marginBotton: "-50px"
+				}, 2000, function () {
+					$(this).css("background-color", "blue");
+				});
+				$(this).html("Click me to make the circle SHRINK");
+			} else {
+				$(".scaleCircle").animate({
+					width:"60px", 
+					height:"60px",
+					marginLeft: "250px",
+					marginBotton: "20px"
+				}, 2000, function () {
+					$(this).css("background-color", "pink");
+				});
+				$(this).html("Click me to make the circle GROW");
+			}
+		});
 	</script>
 </body> 
 </html>
