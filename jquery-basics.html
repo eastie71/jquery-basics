@@ -8,6 +8,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 	<style type="text/css">
 		.greenCircle {
@@ -66,7 +69,23 @@
 			height: 300px;
 			width: 800px;
 		}
-		
+
+		#horizontal {
+			padding: 5px;
+			border: 2px solid green;
+			width: 300px;
+		}
+
+		#dragContainer {
+			width: 50%; 
+			height: 100px; 
+			border: 2px solid #ccc; 
+		}
+
+		#insideBox {
+			border: 2px solid red;
+			width: 150px;
+		}		
 	</style>
 	
 </head>
@@ -98,8 +117,12 @@
 	<button id="regex_submit">Submit</button>
 	<div id="vowels_result"></div>
 
-	<script type="text/javascript">
-		
+	<h3>Draggable Example</h3>
+	<p id="horizontal">Drag me around - HORIZONTALLY ONLY...</p>
+	<div id="dragContainer">
+		<p id="insideBox">Drag me around inside the BOX ONLY</p>
+	</div>
+	<script type="text/javascript">		
 		$("#changeit").click(function () {
 			$("#textChange").html("Well done - you changed the text!");
 			$("iframe").attr("src","http://craigeastwood.com");
@@ -149,6 +172,10 @@
 			//alert($("#regex").val());
 			$("#vowels_result").html("Number of vowels = " + vowelCounter($("#regex").val()));
 		});
+
+		$("#horizontal").draggable({axis: "x"});
+
+		$("#insideBox").draggable({containment: "parent"});
 
 		function vowelCounter(str) {
 			// Return a string that matches any vowel in the string entered - ignore the case (i) and search the entire string ((g)lobal) 
