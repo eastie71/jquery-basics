@@ -92,6 +92,12 @@
 		<div class="scaleCircle left"></div>
 		<div class="clear"></div>
 	</div>
+
+	<h3>Regular Expression Example (Regex)</h3>
+	Enter a string and click "Submit" to calculate the total number of VOWELS: <input id="regex" type="text" name="" size="100">
+	<button id="regex_submit">Submit</button>
+	<div id="vowels_result"></div>
+
 	<script type="text/javascript">
 		
 		$("#changeit").click(function () {
@@ -138,6 +144,17 @@
 				$(this).html("Click me to make the circle GROW");
 			}
 		});
+
+		$("#regex_submit").click(function () {
+			//alert($("#regex").val());
+			$("#vowels_result").html("Number of vowels = " + vowelCounter($("#regex").val()));
+		});
+
+		function vowelCounter(str) {
+			var count = str.match(/[aeiou]/gi);
+			return count === null ? 0 : count.length;
+		}
+
 	</script>
 </body> 
 </html>
