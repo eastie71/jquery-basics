@@ -151,6 +151,7 @@
 		});
 
 		function vowelCounter(str) {
+			// Return a string that matches any vowel in the string entered - ignore the case (i) and search the entire string ((g)lobal) 
 			var count = str.match(/[aeiou]/gi);
 			return count === null ? 0 : count.length;
 		}
