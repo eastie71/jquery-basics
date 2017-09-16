@@ -142,20 +142,55 @@
 	<button id="regex_submit">Submit</button>
 	<div id="vowels_result"></div>
 
-	<h3>Draggable Example</h3>
+	<h3>jQueryUI Draggable Example</h3>
 	<p id="horizontal">Drag me around - HORIZONTALLY ONLY...</p>
 	<div id="dragContainer">
 		<p id="insideBox">Drag me around inside the BOX ONLY</p>
 	</div>
 
-	<h3>Resize Example</h3>
+	<h3>jQueryUI Resize Example</h3>
 	<div id="resizable">
 		<p>This box can be RESIZED. Try it out!</p>
 	</div>
 
-	<h3>Drag and Drop Example</h3>
+	<h3>jQueryUI Drag and Drop Example</h3>
 	<div id="littleBox">Drag me into Blue Box!</div>
 	<div id="biggerBox">Drag little pink box into this container!!</div>
+	<div class="clear"></div>
+
+	<h3>jQueryUI Accordion Example</h3>
+	<h4>The following table of text can be expanded and contracted like an accordion</h4>
+	<div id="accordion">
+		<h3>Part One</h3>
+		<div>
+			<p>
+				Well here is some text the goes into Part One section. Blah blah Blah. You can sell a vehicle as registered up to 3 months after its registration has expired. If it has expired for more than 3 months, your registration is cancelled and you must sell your vehicle as unregistered.
+			</p>
+		</div>
+		<h3>Part Two</h3>
+		<div>
+			<p>
+				Get a Certification of Roadworthiness for the vehicle if required. The certificate must not be more than 30 days old when the sale takes place. Some vehicles and transfer types are exempt from requiring a Certificate of Roadworthiness:
+			</p>
+			<ul>
+				<li>Check transfer types that are exempt from roadworthiness requirements, and </li>
+				<li>Check the list of vehicles exempt from roadworthiness requirements for more information.</li>
+			</ul>
+		</div>
+		<h3>Part Three</h3>
+		<div>
+			<p>
+				Fill in the seller section of the application for transfer of registration form [PDF 368 Kb].
+Note: You are required to inform the buyer in writing whether the vehicle is entered on any Written-off Vehicle Register, either in Victoria or interstate. This can be done by ticking Yes or No in the appropriate section of the transfer form.
+			</p>
+		</div>
+		<h3>Part Four</h3>
+		<div>
+			<p>
+				Give the buyer a receipt as proof of purchase and ownership of the vehicle. The receipt should be dated and included:
+			</p>
+		</div>
+	</div>
 
 	<script type="text/javascript">		
 		$("#changeit").click(function () {
@@ -229,6 +264,12 @@
     		drop: function(event, ui) {
     			alert("Dropped Little Box In. Well Done!!");
     		}
+    	});
+
+    	// No panel is active (or open) and panel can be collapsible
+    	$("#accordion").accordion({
+    		active: false,
+    		collapsible: true
     	});
 
 		function vowelCounter(str) {
