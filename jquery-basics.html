@@ -111,6 +111,23 @@
 			background-color: blue;
 		}
 
+		#sortable { 
+			list-style-type: none; 
+			margin: 0; 
+			padding: 0; 
+			width: 40%; 
+		}
+		#sortable li { 
+			margin: 0 5px 5px 5px; 
+			padding: 5px; 
+			font-size: 1.2em; 
+			height: 1.5em; 
+			line-height: 1.2em;
+		}
+		.ui-state-highlight {
+			height: 1.5em;
+			line-height: 1.2em;
+		}
 	</style>
 	
 </head>
@@ -192,6 +209,19 @@ Note: You are required to inform the buyer in writing whether the vehicle is ent
 		</div>
 	</div>
 
+	<h3>jQueryUI Sortable Example</h3>
+	<h4>Sort your favorite ever Richmond Football Players</h4>
+	<ul id="sortable">
+		<li class="ui-state-default">Matthew Knights</li>
+		<li class="ui-state-default">Matthew Richardson</li>
+		<li class="ui-state-default">Dale Weightman</li>
+		<li class="ui-state-default">Kevin Bartlett</li>
+		<li class="ui-state-default">Dustin Martin</li>
+		<li class="ui-state-default">Trent Cotchin</li>
+		<li class="ui-state-default">Michael Roach</li>
+		<li class="ui-state-default">Alex Rance</li>
+	</ul>
+
 	<script type="text/javascript">		
 		$("#changeit").click(function () {
 			$("#textChange").html("Well done - you changed the text!");
@@ -271,6 +301,12 @@ Note: You are required to inform the buyer in writing whether the vehicle is ent
     		active: false,
     		collapsible: true
     	});
+
+    	// Sortable list that has a place holder location show up when you move an item when dragging with the mouse
+    	$("#sortable").sortable({
+    		placeholder: "ui-state-highlight"
+    	});
+    	$("#sortable").disableSelection();
 
 		function vowelCounter(str) {
 			// Return a string that matches any vowel in the string entered - ignore the case (i) and search the entire string ((g)lobal) 
